@@ -9,16 +9,18 @@ def init_browser():
     return Browser("chrome", **executable_path, headless=False)
 
 
-def scrape():
+def scrape_info():
     browser = init_browser()
-    listings = {}
     
 # NASA Mars News
+    # visit website
     url_1 = "https://mars.nasa.gov/news/"
     browser.visit(url_1)
-    time.sleep(5)
+    time.sleep(1)
+    # scrape page into Soup
     html = browser.html
     soup = bs(html, 'html.parser')
+    # find the data
     results = soup.find('div', class_='list_text')
     title = results.find('div', class_='content_title')
     news_title = title.a.text
@@ -31,7 +33,7 @@ def scrape():
     browser.visit(url_2)
     browser.links.find_by_partial_text('FULL IMAGE').click()
     browser.links.find_by_partial_text('more info').click()
-    time.sleep(5)
+    time.sleep(1)
     html = browser.html
     soup = bs(html, "html.parser")
     image = soup.find('img', class_='main_image')
@@ -49,7 +51,7 @@ def scrape():
     for hemisphere in hemisphere_list:
         browser.visit(url_4)
         browser.links.find_by_partial_text(f'{hemisphere} Enhanced').click()
-        time.sleep(5)
+        time.sleep(1)
         html = browser.html
         soup = bs(html, "html.parser")
         results = soup.find('img', class_='wide-image')
@@ -61,8 +63,6 @@ def scrape():
             }
         hemisphere_image_urls.append(temp_dict)
 
-    browser.quit()
-
 # Mars Facts
     url_3 = "https://space-facts.com/mars/"
     tables = pd.read_html(url_3)
@@ -72,17 +72,24 @@ def scrape():
     df.rename_axis(None, inplace = True)
     html_table = df.to_html()
 
-    listings["news_title"] = news_title
-    listings["news_p"] = news_p
-    listings["feature_image_url"] = feature_image_url
-    listings["html_table"] = html_table
-    listings["title1"] = hemisphere_image_urls[0]["title"]
-    listings["img_url1"] = hemisphere_image_urls[0]["img_url"]
-    listings["title2"] = hemisphere_image_urls[1]["title"]
-    listings["img_url2"] = hemisphere_image_urls[1]["img_url"]
-    listings["title3"] = hemisphere_image_urls[2]["title"]
-    listings["img_url3"] = hemisphere_image_urls[2]["img_url"]
-    listings["title4"] = hemisphere_image_urls[3]["title"]
-    listings["img_url4"] = hemisphere_image_urls[3]["img_url"]
-    
+    # store data in a dictionary
+    listings = {
+        "news_title": news_title,
+        "news_p": news_p,
+        "feature_image_url": feature_image_url,
+        "html_table": html_table,
+        "title1": hemisphere_image_urls[0]["title"],
+        "img_url1": hemisphere_image_urls[0]["img_url"],
+        "title2": hemisphere_image_urls[1]["title"],
+        "img_url2": hemisphere_image_urls[1]["img_url"],
+        "title3": hemisphere_image_urls[2]["title"],
+        "img_url3": hemisphere_image_urls[2]["img_url"],
+        "title4": hemisphere_image_urls[3]["title"],
+        "img_url4": hemisphere_image_urls[3]["img_url"]
+    }
+
+    # quit the browser after scraping
+    browser.quit()
+
+    # return results
     return listings

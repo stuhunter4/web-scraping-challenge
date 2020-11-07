@@ -14,7 +14,7 @@
 <div class="jumbotron">
     <div class="container text-center">
         <h1>Mission to Mars</h1>      
-        <p>Scrape New Data Placeholder</p>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
     </div>
 </div><br>
 
@@ -23,8 +23,8 @@
         <div class="col-sm-12">
             <div class="panel">
                 <div class="panel-heading"><h3>Latest Mars News</h3></div>
-                <div class="panel-body">News Title Placeholder - scrape</div>
-                <div class="panel-footer">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. - scrape</div>
+                <div class="panel-body">{{mars.news_title}}</div>
+                <div class="panel-footer">{{mars.news_p}}</div>
             </div>
         </div>
     </div>
@@ -35,38 +35,13 @@
         <div class="col-sm-6">
             <div class="well">
                 <h3>Featured Mars Image</h3>
-                <img src="http" class="img-responsive"style="width:100%" alt="Image">
+                <img src="{{mars.feature_image_url}}" class="img-responsive"style="width:100%" alt="Image">
             </div>
         </div>
         <div class="col-sm-6">
             <div class="well">
                 <h5>Mars Facts</h5>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
-                        </tr>
-                    </tbody>
-                </table>
+                {{mars.html_table}}
             </div>
         </div>
     </div>
@@ -77,28 +52,28 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="panel">
-                <div class="panel-body"><img src="http://img" class="img-responsive style="width:100%" alt="Image"></div>
-                <div class="panel-footer">Something Something Hemisphere Enhanced</div>
+                <div class="panel-body"><img src="{{mars.img_url1}}" class="img-responsive style="width:100%" alt="Image"></div>
+                <div class="panel-footer">{{mars.title1}} Enhanced</div>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="panel">
-                <div class="panel-body"><img src="http://img" class="img-responsive style="width:100%" alt="Image"></div>
-                <div class="panel-footer">Something Something Hemisphere Enhanced</div>
+                <div class="panel-body"><img src="{{mars.img_url2}}" class="img-responsive style="width:100%" alt="Image"></div>
+                <div class="panel-footer">{{mars.title2}} Enhanced</div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-6">
             <div class="panel">
-                <div class="panel-body"><img src="http://img" class="img-responsive style="width:100%" alt="Image"></div>
-                <div class="panel-footer">Something Something Hemisphere Enhanced</div>
+                <div class="panel-body"><img src="{{mars.img_url3}}" class="img-responsive style="width:100%" alt="Image"></div>
+                <div class="panel-footer">{{mars.title3}} Enhanced</div>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="panel">
-                <div class="panel-body"><img src="http://img" class="img-responsive style="width:100%" alt="Image"></div>
-                <div class="panel-footer">Something Something Hemisphere Enhanced</div>
+                <div class="panel-body"><img src="{{mars.img_url4}}" class="img-responsive style="width:100%" alt="Image"></div>
+                <div class="panel-footer">{{mars.title4}} Enhanced</div>
             </div>
         </div>
     </div>
