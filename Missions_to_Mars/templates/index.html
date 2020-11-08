@@ -8,17 +8,71 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .jumbotron {
+            background-color: #e34e2e;
+        }
+        
+        .well {
+            padding: 40px;
+        }
+
+        .panel {
+            padding: 40px;
+        }
+
+        .body {
+            background: lightgray;
+        }
+
+        h1 {
+            color: #f8a571;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #e34e2e;
+            font-weight: bold;
+        }
+        
+        h5 {
+            color: #e34e2e;
+            font-weight: bold;
+        }
+
+        #orange {
+            background-color: #f8a571;
+        }
+
+        @media screen and (max-width: 767px) {
+            .body {background-color: #f8a571;}
+        }
+
+        table {
+            font-family: arial, sans-serif;
+        }
+  
+        td, th {
+            border: 1px solid #e34e2e;
+            text-align: left;
+            padding: 8px;
+        }
+  
+        tr:nth-child(odd) {
+            background-color: #e34e2e;
+        }
+    </style>
 </head>
-<body>
+<body class="body">
 
 <div class="jumbotron">
     <div class="container text-center">
         <h1>Mission to Mars</h1>      
-        <p><a class="btn btn-danger btn-lg" href="/scrape" role="button">Get Data on Mars</a></p>
+        <p><a id="orange" class="btn btn-lg" href="/scrape" role="button">Get Data on Mars</a></p>
     </div>
 </div><br>
 
-<div class="container">
+<div id="orange" class="container">
     <div class="row">
         <div class="col-sm-12">
             <div class="panel">
@@ -30,7 +84,7 @@
     </div>
 </div><br>
 
-<div class="container">
+<div id="orange" class="container">
     <div class="row">
         <div class="col-sm-6">
             <div class="well">
@@ -49,7 +103,7 @@
     </div>
 </div><br>
 
-<div class="container">
+<div id="orange" class="container">
     <h5>Mars Hemispheres</h5>
     <div class="row">
         <div class="col-sm-6">
