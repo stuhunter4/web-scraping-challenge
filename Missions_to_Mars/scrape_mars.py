@@ -38,6 +38,10 @@ def scrape_info():
     soup = bs(html, "html.parser")
     image = soup.find('img', class_='main_image')
     image_src = image['src']
+    image_find = soup.find('header', id='page_header')
+    image_title = image_find.h1.text.strip()
+    image_date = soup.find('span', class_='release_date').text
+    image_date = image_date.replace("| ", "")
     feature_image_url = url_2_og + image_src
 
 # Mars Hemispheres
@@ -78,6 +82,8 @@ def scrape_info():
         "news_title": news_title,
         "news_p": news_p,
         "feature_image_url": feature_image_url,
+        "image_title": image_title,
+        "image_date": image_date,
         "html_table": html_table,
         "title1": hemisphere_image_urls[0]["title"],
         "img_url1": hemisphere_image_urls[0]["img_url"],
