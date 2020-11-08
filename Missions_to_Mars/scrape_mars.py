@@ -71,6 +71,7 @@ def scrape_info():
     df.set_index("Description", inplace = True)
     df.rename_axis(None, inplace = True)
     html_table = df.to_html()
+    html_table = html_table.replace("\n", "")
 
     # store data in a dictionary
     listings = {
