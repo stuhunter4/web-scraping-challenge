@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup as bs
 
 
 def init_browser():
-    executable_path = {"executable_path": "/Users/stuhu/.wdm/drivers/chromedriver/win32/86.0.4240.22/chromedriver"}
+    executable_path = {"executable_path": "/Users/stuhu/.wdm/drivers/chromedriver/win32/89.0.4389.23/chromedriver"}
     return Browser("chrome", **executable_path, headless=False)
 
 
